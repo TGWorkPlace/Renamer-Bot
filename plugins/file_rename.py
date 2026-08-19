@@ -404,6 +404,14 @@ async def process_rename(bot, update):
             return await ms.edit(f"❌ Dᴏᴡɴʟᴏᴀᴅ Eʀʀᴏʀ: {e}")
     
         logger.info(f"File downloaded successfully: {file_path}")
+
+        # Track bandwidth: bytes actually pulled to disk (counts toward the
+        # monthly usage shown in /stats).
+        try:
+            if os.path.exists(file_path):
+                await db.add_bandwidth_usage(os.path.getsize(file_path))
+        except Exception:
+            pass
     
         # Check if metadata is enabled for user BEFORE processing
         metadata_status = await db.get_metadata(update.message.chat.id)
@@ -533,6 +541,13 @@ async def process_rename(bot, update):
                 os.remove(ph_path)
             return await ms.edit(f"❌ Uᴩʟᴏᴀᴅ Eʀʀᴏʀ: {e}")
     
+        # Track bandwidth: bytes actually pushed back up to Telegram.
+        try:
+            if os.path.exists(file_path):
+                await db.add_bandwidth_usage(os.path.getsize(file_path))
+        except Exception:
+            pass
+
         # Clean up files
         try:
             await ms.delete()
