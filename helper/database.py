@@ -1,6 +1,7 @@
 import motor.motor_asyncio
 import datetime
 import logging
+from pytz import timezone
 from config import Config
 from .utils import send_log
 
@@ -10,10 +11,26 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 
+IST = timezone("Asia/Kolkata")
+
+
+def _current_period():
+    """'YYYY-MM' for the current month in Asia/Kolkata, used as the
+    bandwidth-usage reset key (rolls over at 12:00 AM on the 1st)."""
+    now = datetime.datetime.now(IST)
+    return f"{now.year}-{now.month:02d}"
+
+
 class Database:
     def __init__(self, uri, database_name):
         try:
-            self._client = motor.motor_asyncio.AsyncIOMotorClient(uri)
+            # maxPoolSize/minPoolSize capped low: the default pool (100) keeps
+            # that many idle socket buffers alive at once, which is a needless
+            # chunk of RAM for a single small bot doing modest, mostly
+            # sequential DB calls.
+            self._client = motor.motor_asyncio.AsyncIOMotorClient(
+                uri, maxPoolSize=10, minPoolSize=1
+            )
             self._client.server_info()  # This will raise an exception if the connection fails
             logging.info("Successfully connected to MongoDB")
         except Exception as e:
@@ -22,6 +39,7 @@ class Database:
         
         self.db = self._client[database_name]
         self.col = self.db.user
+        self.bw_col = self.db.bandwidth
 
     def new_user(self, id):
         return dict(
@@ -285,6 +303,48 @@ class Database:
             await self.col.update_one({'_id': int(user_id)}, {'$set': {'video': video}})
         except Exception as e:
             logging.error(f"Error setting video for user {user_id}: {e}")
+
+    # ---------------------------------------------------------------
+    # BANDWIDTH USAGE (download + upload bytes), auto-resets monthly
+    # ---------------------------------------------------------------
+    async def add_bandwidth_usage(self, num_bytes):
+        """Add bytes to the current month's usage counter. If the stored
+        counter belongs to a previous month, it's re-baselined instead of
+        incremented - this is what makes the counter effectively reset
+        itself right at 12:00 AM on the 1st, with no cron job needed."""
+        try:
+            if not num_bytes:
+                return
+            period = _current_period()
+            doc = await self.bw_col.find_one({'_id': 'usage'})
+            if not doc or doc.get('period') != period:
+                await self.bw_col.update_one(
+                    {'_id': 'usage'},
+                    {'$set': {'period': period, 'bytes': int(num_bytes)}},
+                    upsert=True
+                )
+            else:
+                await self.bw_col.update_one(
+                    {'_id': 'usage'},
+                    {'$inc': {'bytes': int(num_bytes)}}
+                )
+        except Exception as e:
+            logging.error(f"Error adding bandwidth usage: {e}")
+
+    async def get_bandwidth_usage(self):
+        """Bytes used so far in the current month. Returns 0 as soon as the
+        month rolls over, even before the first add_bandwidth_usage call of
+        the new month has happened."""
+        try:
+            period = _current_period()
+            doc = await self.bw_col.find_one({'_id': 'usage'})
+            if not doc or doc.get('period') != period:
+                return 0
+            return doc.get('bytes', 0)
+        except Exception as e:
+            logging.error(f"Error getting bandwidth usage: {e}")
+            return 0
+
 
 codeflixbots = Database(Config.DB_URL, Config.DB_NAME)
 
