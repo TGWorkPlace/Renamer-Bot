@@ -1,0 +1,11 @@
+wzgram[fast]
+motor==3.1.1
+pymongo==4.3.3
+dnspython
+hachoir
+Pillow
+aiohttp
+pytz
+python-dotenv
+psutil
+setuptools
