@@ -7,6 +7,7 @@ from aiohttp import web
 from route import web_server
 from pyrogram import utils as pyroutils
 import asyncio
+import gc
 import os
 import sys
 
@@ -14,6 +15,15 @@ import sys
 if os.environ.get("NETLIFY") or os.environ.get("CI"):
     print("Skipping bot run in build environment.")
     sys.exit(0)
+
+# file_rename.py already forces a manual gc.collect() + malloc_trim right
+# after every download/upload task finishes (see release_memory() there),
+# which is when memory actually needs reclaiming. Raising the automatic
+# collector's thresholds means it fires less often in between those points,
+# trading a bit of GC precision for noticeably less CPU spent on collections
+# that mostly just re-scan long-lived objects (the Client, DB connections,
+# plugin modules) for no gain.
+gc.set_threshold(50000, 50, 50)
 
 asyncio.set_event_loop(asyncio.new_event_loop())
 
@@ -28,18 +38,24 @@ class Bot(Client):
             api_id=Config.API_ID,
             api_hash=Config.API_HASH,
             bot_token=Config.BOT_TOKEN,
-            # Lowered from 200 -> 8. 200 dispatcher workers were kept alive
+            # Lowered from 200 -> 4. 200 dispatcher workers were kept alive
             # permanently and were a big chunk of the idle/baseline memory
-            # footprint. For a single-admin private bot, 8 is plenty and
-            # cuts RAM usage noticeably, which matters on Koyeb's free tier.
-            workers=8,
+            # footprint. This bot only ever has ONE admin and processes
+            # renames one-at-a-time through its own queue, so 4 workers is
+            # already more than enough headroom and frees up RAM that Koyeb
+            # was reporting as 100%.
+            workers=4,
             plugins={"root": "plugins"},
             sleep_threshold=15,
-            # Speed optimization: splits a single file's download/upload
-            # across multiple connections (Pyrofork feature). 4-8 is a
-            # reasonable range; too high can hurt on limited bandwidth
-            # hosts like Koyeb's free tier.
-            max_concurrent_transmissions=4,
+            # Each concurrent transmission holds its own chunk buffers in
+            # memory. Since file_rename.py already serializes all
+            # downloads/uploads through a single-task queue, there's only
+            # ever one active transfer at a time - so a high value here just
+            # burns RAM on buffers with nothing else to use them
+            # concurrently. Lowered from 4 -> 2 to shrink peak memory during
+            # large (up to 2GB) file transfers, while still splitting each
+            # transfer across a couple of connections for decent speed.
+            max_concurrent_transmissions=2,
         )
 
     async def start(self):
