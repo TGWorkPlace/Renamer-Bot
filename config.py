@@ -31,7 +31,7 @@ class Config(object):
     BOT_TOKEN = os.environ.get("BOT_TOKEN", "") 
    
     # database config
-    DB_NAME = os.environ.get("DB_NAME","")     
+    DB_NAME = os.environ.get("DB_NAME","Cluster0")     
     DB_URL  = os.environ.get("DB_URL","")
  
     # other configs
@@ -47,99 +47,99 @@ class Config(object):
 
 class Txt(object):
     # part of text configuration
-    START_TXT = """<b>Hᴀɪ {} 👋,
+    START_TXT = """<b>Há´€Éª {} ðŸ‘‹,
     
-➻ Tʜɪs Is Aɴ Aᴅᴠᴀɴᴄᴇᴅ Aɴᴅ Yᴇᴛ Pᴏᴡᴇʀꜰᴜʟ ɪʟʟᴇɢᴀʟ Rᴇɴᴀᴍᴇ Bᴏᴛ.
-➻ Usɪɴɢ Tʜɪs Bᴏᴛ Yᴏᴜ Cᴀɴ Rᴇɴᴀᴍᴇ & Cʜᴀɴɢᴇ Tʜᴜᴍʙɴᴀɪʟ Oꜰ Yᴏᴜʀ Fɪʟᴇ.
-➻ Yᴏᴜ Cᴀɴ Aʟsᴏ Cᴏɴᴠᴇʀᴛ Vɪᴅᴇᴏ Tᴏ Fɪʟᴇ & Fɪʟᴇ Tᴏ Vɪᴅᴇᴏ.
-➻ Tʜɪs Bᴏᴛ Aʟꜱᴏ Sᴜᴘᴘᴏʀᴛs Cᴜsᴛᴏᴍ Tʜᴜᴍʙɴᴀɪʟ Aɴᴅ Cᴜsᴛᴏᴍ Cᴀᴘᴛɪᴏɴ.
+âž» TÊœÉªs Is AÉ´ Aá´…á´ á´€É´á´„á´‡á´… AÉ´á´… Yá´‡á´› Pá´á´¡á´‡Ê€êœ°á´œÊŸ ÉªÊŸÊŸá´‡É¢á´€ÊŸ Rá´‡É´á´€á´á´‡ Bá´á´›.
+âž» UsÉªÉ´É¢ TÊœÉªs Bá´á´› Yá´á´œ Cá´€É´ Rá´‡É´á´€á´á´‡ & CÊœá´€É´É¢á´‡ TÊœá´œá´Ê™É´á´€ÉªÊŸ Oêœ° Yá´á´œÊ€ FÉªÊŸá´‡.
+âž» Yá´á´œ Cá´€É´ AÊŸsá´ Cá´É´á´ á´‡Ê€á´› VÉªá´…á´‡á´ Tá´ FÉªÊŸá´‡ & FÉªÊŸá´‡ Tá´ VÉªá´…á´‡á´.
+âž» TÊœÉªs Bá´á´› AÊŸêœ±á´ Sá´œá´˜á´˜á´Ê€á´›s Cá´œsá´›á´á´ TÊœá´œá´Ê™É´á´€ÉªÊŸ AÉ´á´… Cá´œsá´›á´á´ Cá´€á´˜á´›Éªá´É´.
 
-💺 Tʜɪs Bᴏᴛ Wᴀs Cʀᴇᴀᴛᴇᴅ Bʏ : @Codeflix_Bots 💞</b>"""
+ðŸ’º TÊœÉªs Bá´á´› Wá´€s CÊ€á´‡á´€á´›á´‡á´… BÊ : @Codeflix_Bots ðŸ’ž</b>"""
 
-    ILLEGAL_TXT = """<b>ʜᴇʀᴇ ɪꜱ ᴏᴜʀ ᴀʟʟ ʙᴏᴛ ʟɪꜱᴛ</b>"""
+    ILLEGAL_TXT = """<b>Êœá´‡Ê€á´‡ Éªêœ± á´á´œÊ€ á´€ÊŸÊŸ Ê™á´á´› ÊŸÉªêœ±á´›</b>"""
     
-    ABOUT_TXT = """<b>╭───────────⍟
-├🤖 ᴍy ɴᴀᴍᴇ : {}
-├🖥️ Dᴇᴠᴇʟᴏᴩᴇʀꜱ : <a href=https://t.me/codeflix_bots>**ᴄᴏᴅᴇғʟɪx ʙᴏᴛs**</a> 🕷
-├👨‍💻 Pʀᴏɢʀᴀᴍᴇʀ : **ᴍɪᴋᴇʏ**
-╰───────────────⍟ </b>"""
+    ABOUT_TXT = """<b>â•­â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€âŸ
+â”œðŸ¤– á´y É´á´€á´á´‡ : {}
+â”œðŸ–¥ï¸ Dá´‡á´ á´‡ÊŸá´á´©á´‡Ê€êœ± : <a href=https://t.me/codeflix_bots>**á´„á´á´…á´‡Ò“ÊŸÉªx Ê™á´á´›s**</a> ðŸ•·
+â”œðŸ‘¨â€ðŸ’» PÊ€á´É¢Ê€á´€á´á´‡Ê€ : **á´Éªá´‹á´‡Ê**
+â•°â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€âŸ </b>"""
 
     HELP_TXT = """
-🌌 <b><u>Hᴏᴡ Tᴏ Sᴇᴛ Tʜᴜᴍʙɴɪʟᴇ</u></b>
+ðŸŒŒ <b><u>Há´á´¡ Tá´ Sá´‡á´› TÊœá´œá´Ê™É´ÉªÊŸá´‡</u></b>
   
-<b>•»</b> /start Tʜᴇ Bᴏᴛ Aɴᴅ Sᴇɴᴅ Aɴy Pʜᴏᴛᴏ Tᴏ Aᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟy Sᴇᴛ Tʜᴜᴍʙɴɪʟᴇ.
-<b>•»</b> /del_thumb Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇʟᴇᴛᴇ Yᴏᴜʀ Oʟᴅ Tʜᴜᴍʙɴɪʟᴇ.
-<b>•»</b> /view_thumb Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Vɪᴇᴡ Yᴏᴜʀ Cᴜʀʀᴇɴᴛ Tʜᴜᴍʙɴɪʟᴇ.
+<b>â€¢Â»</b> /start TÊœá´‡ Bá´á´› AÉ´á´… Sá´‡É´á´… AÉ´y PÊœá´á´›á´ Tá´ Aá´œá´›á´á´á´€á´›Éªá´„á´€ÊŸÊŸy Sá´‡á´› TÊœá´œá´Ê™É´ÉªÊŸá´‡.
+<b>â€¢Â»</b> /del_thumb Uêœ±á´‡ TÊœÉªêœ± Cá´á´á´á´€É´á´… Tá´ Dá´‡ÊŸá´‡á´›á´‡ Yá´á´œÊ€ OÊŸá´… TÊœá´œá´Ê™É´ÉªÊŸá´‡.
+<b>â€¢Â»</b> /view_thumb Uêœ±á´‡ TÊœÉªêœ± Cá´á´á´á´€É´á´… Tá´ VÉªá´‡á´¡ Yá´á´œÊ€ Cá´œÊ€Ê€á´‡É´á´› TÊœá´œá´Ê™É´ÉªÊŸá´‡.
 
-📑 <b><u>Hᴏᴡ Tᴏ Sᴇᴛ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ</u></b>
+ðŸ“‘ <b><u>Há´á´¡ Tá´ Sá´‡á´› Cá´œêœ±á´›á´á´ Cá´€á´©á´›Éªá´É´</u></b>
 
-<b>•»</b> /set_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Sᴇᴛ ᴀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ.
-<b>•»</b> /see_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Vɪᴇᴡ Yᴏᴜʀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ.
-<b>•»</b> /del_caption - Uꜱᴇ Tʜɪꜱ Cᴏᴍᴍᴀɴᴅ Tᴏ Dᴇʟᴇᴛᴇ Yᴏᴜʀ Cᴜꜱᴛᴏᴍ Cᴀᴩᴛɪᴏɴ.
+<b>â€¢Â»</b> /set_caption - Uêœ±á´‡ TÊœÉªêœ± Cá´á´á´á´€É´á´… Tá´ Sá´‡á´› á´€ Cá´œêœ±á´›á´á´ Cá´€á´©á´›Éªá´É´.
+<b>â€¢Â»</b> /see_caption - Uêœ±á´‡ TÊœÉªêœ± Cá´á´á´á´€É´á´… Tá´ VÉªá´‡á´¡ Yá´á´œÊ€ Cá´œêœ±á´›á´á´ Cá´€á´©á´›Éªá´É´.
+<b>â€¢Â»</b> /del_caption - Uêœ±á´‡ TÊœÉªêœ± Cá´á´á´á´€É´á´… Tá´ Dá´‡ÊŸá´‡á´›á´‡ Yá´á´œÊ€ Cá´œêœ±á´›á´á´ Cá´€á´©á´›Éªá´É´.
 
-Exᴀᴍᴩʟᴇ:- /set_caption 📕 Fɪʟᴇ Nᴀᴍᴇ: {filename}
-💾 Sɪᴢᴇ: {filesize}
-⏰ Dᴜʀᴀᴛɪᴏɴ: {duration}
+Exá´€á´á´©ÊŸá´‡:- /set_caption ðŸ“• FÉªÊŸá´‡ Ná´€á´á´‡: {filename}
+ðŸ’¾ SÉªá´¢á´‡: {filesize}
+â° Dá´œÊ€á´€á´›Éªá´É´: {duration}
 
-✏️ <b><u>Hᴏᴡ Tᴏ Rᴇɴᴀᴍᴇ A Fɪʟᴇ</u></b>
+âœï¸ <b><u>Há´á´¡ Tá´ Rá´‡É´á´€á´á´‡ A FÉªÊŸá´‡</u></b>
 
-<b>•»</b> Sᴇɴᴅ Aɴy Fɪʟᴇ Aɴᴅ Tyᴩᴇ Nᴇᴡ Fɪʟᴇ Nɴᴀᴍᴇ \nAɴᴅ Aᴇʟᴇᴄᴛ Tʜᴇ Fᴏʀᴍᴀᴛ [ document, video, audio ].           
+<b>â€¢Â»</b> Sá´‡É´á´… AÉ´y FÉªÊŸá´‡ AÉ´á´… Tyá´©á´‡ Ná´‡á´¡ FÉªÊŸá´‡ NÉ´á´€á´á´‡ \nAÉ´á´… Aá´‡ÊŸá´‡á´„á´› TÊœá´‡ Fá´Ê€á´á´€á´› [ document, video, audio ].           
 
-ℹ️ 𝗔𝗻𝘆 𝗢𝘁𝗵𝗲𝗿 𝗛𝗲𝗹𝗽 𝗖𝗼𝗻𝘁𝗮𝗰𝘁 :- <a href=https://t.me/IllegalDeveloperBot>𝘽𝙤𝙩 𝘿𝙚𝙫𝙚𝙡𝙤𝙥𝙚𝙧</a>
+â„¹ï¸ ð—”ð—»ð˜† ð—¢ð˜ð—µð—²ð—¿ ð—›ð—²ð—¹ð—½ ð—–ð—¼ð—»ð˜ð—®ð—°ð˜ :- <a href=https://t.me/IllegalDeveloperBot>ð˜½ð™¤ð™© ð˜¿ð™šð™«ð™šð™¡ð™¤ð™¥ð™šð™§</a>
 """
 
-#⚠️ Dᴏɴ'ᴛ Rᴇᴍᴏᴠᴇ Oᴜʀ Cʀᴇᴅɪᴛꜱ https://github.com/Codeflix-Bots🙏🥲
-    DEV_TXT = """<b><u>Sᴩᴇᴄɪᴀʟ Tʜᴀɴᴋꜱ & Dᴇᴠᴇʟᴏᴩᴇʀꜱ</b></u>
-»<a href=https://t.me/codeflix_bots>**Codeflix bots**</a>🕷
-»**Kunal Singh ♡**"""
+#âš ï¸ Dá´É´'á´› Rá´‡á´á´á´ á´‡ Oá´œÊ€ CÊ€á´‡á´…Éªá´›êœ± https://github.com/Codeflix-BotsðŸ™ðŸ¥²
+    DEV_TXT = """<b><u>Sá´©á´‡á´„Éªá´€ÊŸ TÊœá´€É´á´‹êœ± & Dá´‡á´ á´‡ÊŸá´á´©á´‡Ê€êœ±</b></u>
+Â»<a href=https://t.me/codeflix_bots>**Codeflix bots**</a>ðŸ•·
+Â»**Kunal Singh â™¡**"""
 
     PROGRESS_BAR = """<b>\n
-╭════ ⚡️ Sᴛᴀᴛs ⚡️ ════╮
-│ 💠 Sɪᴢᴇ   : {1} / {2}
-│ 🎯 Dᴏɴᴇ   : {0}%
-│ ⚡ Sᴘᴇᴇᴅ : {3}/s
-│ 🕒 Eᴛᴀ    : {4}
-╰══════════════════════╯ </b>"""
+â•­â•â•â•â• âš¡ï¸ Sá´›á´€á´›s âš¡ï¸ â•â•â•â•â•®
+â”‚ ðŸ’  SÉªá´¢á´‡   : {1} / {2}
+â”‚ ðŸŽ¯ Dá´É´á´‡   : {0}%
+â”‚ âš¡ Sá´˜á´‡á´‡á´… : {3}/s
+â”‚ ðŸ•’ Eá´›á´€    : {4}
+â•°â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•¯ </b>"""
     
     SEND_METADATA = """
 <b>--Metadata Settings:--</b>
 
-➜ /metadata: Turn on or off metadata.
+âžœ /metadata: Turn on or off metadata.
 
 <b>Description</b> : Metadata will change MKV video files including all audio, streams, and subtitle titles."""
    
     META_TXT = """
-**ᴍᴀɴᴀɢɪɴɢ ᴍᴇᴛᴀᴅᴀᴛᴀ ғᴏʀ ʏᴏᴜʀ ᴠɪᴅᴇᴏs ᴀɴᴅ ғɪʟᴇs**
+**á´á´€É´á´€É¢ÉªÉ´É¢ á´á´‡á´›á´€á´…á´€á´›á´€ Ò“á´Ê€ Êá´á´œÊ€ á´ Éªá´…á´‡á´s á´€É´á´… Ò“ÉªÊŸá´‡s**
 
-**ᴠᴀʀɪᴏᴜꜱ ᴍᴇᴛᴀᴅᴀᴛᴀ:**
+**á´ á´€Ê€Éªá´á´œêœ± á´á´‡á´›á´€á´…á´€á´›á´€:**
 
-- **ᴛɪᴛʟᴇ**: Descriptive title of the media.
-- **ᴀᴜᴛʜᴏʀ**: The creator or owner of the media.
-- **ᴀʀᴛɪꜱᴛ**: The artist associated with the media.
-- **ᴀᴜᴅɪᴏ**: Title or description of audio content.
-- **ꜱᴜʙᴛɪᴛʟᴇ**: Title of subtitle content.
-- **ᴠɪᴅᴇᴏ**: Title or description of video content.
+- **á´›Éªá´›ÊŸá´‡**: Descriptive title of the media.
+- **á´€á´œá´›Êœá´Ê€**: The creator or owner of the media.
+- **á´€Ê€á´›Éªêœ±á´›**: The artist associated with the media.
+- **á´€á´œá´…Éªá´**: Title or description of audio content.
+- **êœ±á´œÊ™á´›Éªá´›ÊŸá´‡**: Title of subtitle content.
+- **á´ Éªá´…á´‡á´**: Title or description of video content.
 
-**ᴄᴏᴍᴍᴀɴᴅꜱ ᴛᴏ ᴛᴜʀɴ ᴏɴ ᴏғғ ᴍᴇᴛᴀᴅᴀᴛᴀ:**
-➜ /metadata: Turn on or off metadata.
+**á´„á´á´á´á´€É´á´…êœ± á´›á´ á´›á´œÊ€É´ á´É´ á´Ò“Ò“ á´á´‡á´›á´€á´…á´€á´›á´€:**
+âžœ /metadata: Turn on or off metadata.
 
-**ᴄᴏᴍᴍᴀɴᴅꜱ ᴛᴏ ꜱᴇᴛ ᴍᴇᴛᴀᴅᴀᴛᴀ:**
+**á´„á´á´á´á´€É´á´…êœ± á´›á´ êœ±á´‡á´› á´á´‡á´›á´€á´…á´€á´›á´€:**
 
-➜ /settitle: Set a custom title of media.
-➜ /setauthor: Set the author.
-➜ /setartist: Set the artist.
-➜ /setaudio: Set audio title.
-➜ /setsubtitle: Set subtitle title.
-➜ /setvideo: Set video title.
+âžœ /settitle: Set a custom title of media.
+âžœ /setauthor: Set the author.
+âžœ /setartist: Set the artist.
+âžœ /setaudio: Set audio title.
+âžœ /setsubtitle: Set subtitle title.
+âžœ /setvideo: Set video title.
 
-**ᴇxᴀᴍᴘʟᴇ:** /settitle Your Title Here
+**á´‡xá´€á´á´˜ÊŸá´‡:** /settitle Your Title Here
 
-**ᴜꜱᴇ ᴛʜᴇꜱᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ᴛᴏ ᴇɴʀɪᴄʜ ʏᴏᴜʀ ᴍᴇᴅɪᴀ ᴡɪᴛʜ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ᴍᴇᴛᴀᴅᴀᴛᴀ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ!**
+**á´œêœ±á´‡ á´›Êœá´‡êœ±á´‡ á´„á´á´á´á´€É´á´…êœ± á´›á´ á´‡É´Ê€Éªá´„Êœ Êá´á´œÊ€ á´á´‡á´…Éªá´€ á´¡Éªá´›Êœ á´€á´…á´…Éªá´›Éªá´É´á´€ÊŸ á´á´‡á´›á´€á´…á´€á´›á´€ ÉªÉ´êœ°á´Ê€á´á´€á´›Éªá´É´!**
 """
 
 
 
-�� ᴛʜᴇꜱᴇ ᴄᴏᴍᴍᴀɴᴅꜱ ᴛᴏ ᴇɴʀɪᴄʜ ʏᴏᴜʀ ᴍᴇᴅɪᴀ ᴡɪᴛʜ ᴀᴅᴅɪᴛɪᴏɴᴀʟ ᴍᴇᴛᴀᴅᴀᴛᴀ ɪɴꜰᴏʀᴍᴀᴛɪᴏɴ!**
+´‡ á´›Êœá´‡êœ±á´‡ á´„á´á´á´á´€É´á´…êœ± á´›á´ á´‡É´Ê€Éªá´„Êœ Êá´á´œÊ€ á´á´‡á´…Éªá´€ á´¡Éªá´›Êœ á´€á´…á´…Éªá´›Éªá´É´á´€ÊŸ á´á´‡á´›á´€á´…á´€á´›á´€ ÉªÉ´êœ°á´Ê€á´á´€á´›Éªá´É´!**
 """
 
 
