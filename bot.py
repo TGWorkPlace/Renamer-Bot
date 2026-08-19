@@ -44,7 +44,7 @@ class Bot(Client):
             # renames one-at-a-time through its own queue, so 4 workers is
             # already more than enough headroom and frees up RAM that Koyeb
             # was reporting as 100%.
-            workers=4,
+            workers=1,
             plugins={"root": "plugins"},
             sleep_threshold=15,
             # Each concurrent transmission holds its own chunk buffers in
